@@ -10,6 +10,27 @@ A [smart contract] written in [Rust] for an app initialized with [create-near-ap
 2. check Cargo.toml file
 3. add contract code
 4. run tests: cargo test -- --nocapture
+5. near login
+6. to see keys: near keys friend.testnet
+7. Build SmartContract: cargo build --target wasm32-unknown-unknown --release
+https://www.near-sdk.io/building/basic-build
+8. optional mimification: https://www.near-sdk.io/building/post-processing-tools
+9. create subaccount: near create-account friends.abong.testnet --masterAccount abong.testnet
+near delete crossword.abong.testnet abong.testnet
+near state friends.abong.testnet  Dev Acct: near state dev-1642982642042-83128772883131
+10. Deploy: use yarn dev to deploy contract to testnet. see below
+11. call contract methods: 
+view only: 
+near view dev-1642982642042-83128772883131 get_friend '{\"friend_id\": \"azinwi.testnet\"}' --accountId abong.testnet
+            
+near view dev-1642982642042-83128772883131 get_friends '{\"from_index\": 0, \"limit\": 5}' --accountId abong.testnet
+
+ near call dev-1642982642042-83128772883131 add_friend_request '{\"friend_id\": \"azinwi.testnet\"}' --accountId abong.testnet
+
+
+
+
+
 
 # Quick Start
 

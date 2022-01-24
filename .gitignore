@@ -5,9 +5,18 @@
 /.pnp
 .pnp.js
 /out
+/dist
 
 #keys
 /neardev
+
+#contracts
+contract/target
+out
+
+#cache
+.cache
+.parcel-cache
 
 # testing
 /coverage

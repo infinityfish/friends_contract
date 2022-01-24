@@ -2,7 +2,6 @@
  * This is a Rust smart contract with these functions:
  *
  * 1. add_friend_request: accepts a friend request from current user asking  nextfriend.near to join his/her friendlist
- *    who sent the request
  * 2. confirm_friend_request: nextfriend.near accepts friend request. nextfrined and current_user both appear on each others friendslist
  * 3. get_friend: find friend by account id
  * 4. get_friends_list: list of all current user's friends 
@@ -52,10 +51,11 @@ impl FriendsContract {
 
     pub fn add_friend_request(&mut self, friend_id: String) {
         self.list_owner = env::signer_account_id();
-
-        // Use env::log to record logs permanently to the blockchain!
-        env::log(format!("adding Friend with ID: '{}' for account '{}'", friend_id, self.list_owner).as_bytes());
+        
         let status = String::from("pending");
+        // Use env::log to record logs permanently to the blockchain!
+        env::log(format!("adding Friend with ID: '{}' as '{}' for account '{}'", friend_id, status, self.list_owner).as_bytes());
+        
         self.friends.insert(&friend_id, &status);
     }
 
@@ -64,7 +64,7 @@ impl FriendsContract {
     // Learn more: https://doc.rust-lang.org/book/ch06-02-match.html#matching-with-optiont
     pub fn get_friend(&self, friend_id: AccountId) -> String {
         match self.friends.get(&friend_id) {
-            Some(_value) => friend_id,
+            Some(_value) => friend_id.clone(),
             None => "No friend".to_string(),
         }
     }
