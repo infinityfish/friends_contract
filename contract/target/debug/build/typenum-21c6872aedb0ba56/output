@@ -1,2 +1,0 @@
-cargo:rustc-env=TYPENUM_BUILD_CONSTS=C:\Users\azinwi\Documents\daddy\aweb3\near-projects\friends-list\contract\target\debug\build\typenum-21c6872aedb0ba56\out\consts.rs
-cargo:rustc-env=TYPENUM_BUILD_OP=C:\Users\azinwi\Documents\daddy\aweb3\near-projects\friends-list\contract\target\debug\build\typenum-21c6872aedb0ba56\out\op.rs
